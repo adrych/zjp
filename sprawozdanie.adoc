@@ -1,0 +1,110 @@
+# Refaktoryzacja https://github.com/github/scientist[scientist]
+:source-highlighter: pygments
+:pygments-style: pastie
+:icons: font
+:experimental:
+
+Refaktoryzacja pliku::
+https://github.com/github/scientist/blob/master/lib/scientist/experiment.rb[lib/scientist/experiment.rb]
+(286 linii kodu, flog score: 159.0, flay score: 0).
+Kod po refaktoryzacji::
+https://github.com/adrych/zjp/blob/master/experiment.rb[zjp/experiment.rb]
+
+Liczba _code smells_ w oryginalnym pliku – 14.
+----
+experiment.rb -- 14 warnings:
+  [10]:Attribute: Scientist::Experiment#raise_on_mismatches is a writable attribute [https://github.com/troessner/reek/blob/master/docs/Attribute.md]
+  [44, 45]:DuplicateMethodCall: Scientist::Experiment::MismatchError#format_observation calls 'observation.exception' 2 times [https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md]
+  [52]:IrresponsibleModule: Scientist::Experiment::RaiseOnMismatch has no descriptive comment [https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md]
+  [127]:NilCheck: Scientist::Experiment#context performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [279]:NilCheck: Scientist::Experiment#raise_on_mismatches? performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [196]:NilCheck: Scientist::Experiment#run performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [149]:TooManyStatements: Scientist::Experiment#ignore_mismatched_observation? has approx 6 statements [https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md]
+  [189]:TooManyStatements: Scientist::Experiment#run has approx 20 statements [https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md]
+  [168]:UncommunicativeParameterName: Scientist::Experiment#observations_are_equivalent? has the parameter name 'a' [https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md]
+  [168]:UncommunicativeParameterName: Scientist::Experiment#observations_are_equivalent? has the parameter name 'b' [https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md]
+  [215]:UncommunicativeVariableName: Scientist::Experiment#run has the variable name 'o' [https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md]
+  [120]:UnusedParameters: Scientist::Experiment#compare has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+  [182]:UnusedParameters: Scientist::Experiment#raised has unused parameter 'operation' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+  [41]:UtilityFunction: Scientist::Experiment::MismatchError#format_observation doesn't depend on instance state (maybe move it to another class?) [https://github.com/troessner/reek/blob/master/docs/Utility-Function.md]
+----
+
+Describe results.
+
+
+## TooManyStatements
+
+Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
+
+https://refactoring.guru/smells/long-method[Signs and Symptoms.]
+
+https://refactoring.guru/smells/long-method[Treatment.]
+
+
+### Extract Method
+
+Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
+
+https://refactoring.guru/extract-method[Why Refactor?]
+
+https://refactoring.guru/extract-method[Benefits.]
+
+https://refactoring.guru/smells/long-method[How to Refactor?]
+
+Description.
+
+
+### Move Method
+
+Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
+
+https://refactoring.guru/extract-method[Why Refactor?]
+
+https://refactoring.guru/extract-method[Benefits.]
+
+https://refactoring.guru/smells/long-method[How to Refactor?]
+
+Description.
+
+
+### Extract Class
+
+Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
+
+https://refactoring.guru/extract-method[Why Refactor?]
+
+https://refactoring.guru/extract-method[Benefits.]
+
+https://refactoring.guru/smells/long-method[How to Refactor?]
+
+Description.
+
+
+## UnusedParameters
+
+Ditto.
+
+
+## UtilityFunction
+
+Ditto.
+
+
+## NilCheck
+
+Ditto.
+
+
+## TooManyInstanceVariables
+
+Ditto.
+
+
+## ControlParameter
+
+Ditto.
+
+
+## Attribute
+
+Ditto.
