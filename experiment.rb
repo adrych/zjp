@@ -49,13 +49,14 @@ module Scientist::Experiment
     end
   end
 
-  module RaiseOnMismatch
     # Set this flag to raise on experiment mismatches.
     #
     # This causes all science mismatches to raise a MismatchError. This is
     # intended for test environments and should not be enabled in a production
     # environment.
     #
+  module RaiseOnMismatch
+
     # bool - true/false - whether to raise when the control and candidate mismatch.
     def raise_on_mismatches=(bool)
       @raise_on_mismatches = bool
@@ -122,7 +123,7 @@ module Scientist::Experiment
   end
 
   # A Symbol-keyed Hash of extra experiment data.
-  def context(context = nil)
+  def context(context) # = nil
     @_scientist_context ||= {}
     @_scientist_context.merge!(context) unless context.nil?
     @_scientist_context
