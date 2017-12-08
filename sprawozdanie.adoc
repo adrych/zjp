@@ -32,13 +32,14 @@ experiment.rb -- 14 warnings:
 Describe results.
 
 
-## TooManyStatements
+## UncommunicativeParameterName
 
 Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
 
-https://refactoring.guru/smells/long-method[Signs and Symptoms.]
+https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md[Signs and Symptoms.]
 
-https://refactoring.guru/smells/long-method[Treatment.]
+
+
 
 
 ### Extract Method
@@ -55,6 +56,10 @@ Description.
 
 
 ### Move Method
+
+
+
+second_obs
 
 Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
 

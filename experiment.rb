@@ -166,11 +166,11 @@ module Scientist::Experiment
   end
 
   # Internal: compare two observations, using the configured compare block if present.
-  def observations_are_equivalent?(a, b)
+  def observations_are_equivalent?(first_obs, second_obs)
     if @_scientist_comparator
-      a.equivalent_to?(b, &@_scientist_comparator)
+      first_obs.equivalent_to?(second_obs, &@_scientist_comparator)
     else
-      a.equivalent_to? b
+      first_obs.equivalent_to? second_obs
     end
   rescue StandardError => ex
     raised :compare, ex
