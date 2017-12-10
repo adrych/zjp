@@ -29,6 +29,22 @@ experiment.rb -- 14 warnings:
   [41]:UtilityFunction: Scientist::Experiment::MismatchError#format_observation doesn't depend on instance state (maybe move it to another class?) [https://github.com/troessner/reek/blob/master/docs/Utility-Function.md]
 ----
 
+Liczba _code smells_ w oryginalnym pliku – 11.
+----
+experiment.rb -- 11 warnings:
+  [10]:Attribute: Scientist::Experiment#raise_on_mismatches is a writable attribute [https://github.com/troessner/reek/blob/master/docs/Attribute.md]
+  [44, 45]:DuplicateMethodCall: Scientist::Experiment::MismatchError#format_observation calls 'observation.exception' 2 times [https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md]
+  [128]:NilCheck: Scientist::Experiment#context performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [280]:NilCheck: Scientist::Experiment#raise_on_mismatches? performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [197]:NilCheck: Scientist::Experiment#run performs a nil-check [https://github.com/troessner/reek/blob/master/docs/Nil-Check.md]
+  [150]:TooManyStatements: Scientist::Experiment#ignore_mismatched_observation? has approx 6 statements [https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md]
+  [190]:TooManyStatements: Scientist::Experiment#run has approx 20 statements [https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md]
+  [216]:UncommunicativeVariableName: Scientist::Experiment#run has the variable name 'o' [https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md]
+  [121]:UnusedParameters: Scientist::Experiment#compare has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+  [183]:UnusedParameters: Scientist::Experiment#raised has unused parameter 'operation' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+  [41]:UtilityFunction: Scientist::Experiment::MismatchError#format_observation doesn't depend on instance state (maybe move it to another class?) [https://github.com/troessner/reek/blob/master/docs/Utility-Function.md]
+----
+
 Describe results.
 
 
@@ -38,78 +54,3 @@ Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
 
 https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md[Signs and Symptoms.]
 
-
-
-
-
-### Extract Method
-
-Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
-
-https://refactoring.guru/extract-method[Why Refactor?]
-
-https://refactoring.guru/extract-method[Benefits.]
-
-https://refactoring.guru/smells/long-method[How to Refactor?]
-
-Description.
-
-
-### Move Method
-
-
-
-second_obs
-
-Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
-
-https://refactoring.guru/extract-method[Why Refactor?]
-
-https://refactoring.guru/extract-method[Benefits.]
-
-https://refactoring.guru/smells/long-method[How to Refactor?]
-
-Description.
-
-
-### Extract Class
-
-Kod po refaktoryzacji:: [lib/diff/lcs/hunk.rb]
-
-https://refactoring.guru/extract-method[Why Refactor?]
-
-https://refactoring.guru/extract-method[Benefits.]
-
-https://refactoring.guru/smells/long-method[How to Refactor?]
-
-Description.
-
-
-## UnusedParameters
-
-Ditto.
-
-
-## UtilityFunction
-
-Ditto.
-
-
-## NilCheck
-
-Ditto.
-
-
-## TooManyInstanceVariables
-
-Ditto.
-
-
-## ControlParameter
-
-Ditto.
-
-
-## Attribute
-
-Ditto.
